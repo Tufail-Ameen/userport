@@ -3,6 +3,7 @@
 import React from 'react'
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import Link from 'next/link';
 
 export default function Log_in() {
     const initialValues = {
@@ -11,13 +12,22 @@ export default function Log_in() {
     }
 
     const validationSchema = Yup.object({
-        email: Yup
-            .string().email('Invalid email address')
-            .required('Email is required'),
+        email: Yup.string()
+        .required('Email is required')
+        .email('Invalid email format')
+        .matches(/^\S*$/, 'No spaces allowed')
+        .matches(/^[^@.][a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 'Invalid email format')
+        .matches(/^(?!.*\.\.)/, 'Consecutive dots are not allowed')
+        .matches(/^[a-zA-Z0-9._%+-]+@gmail\.com$/, 'Only Gmail addresses are allowed'),
 
-            password: Yup
-            .string()
-            .required('Password is required'),
+            password: Yup.string()
+            .required('Password is required')
+            .min(8, 'Password must be at least 8 characters')
+            .matches(/[A-Z]/, 'Must include at least one uppercase letter')
+            .matches(/[a-z]/, 'Must include at least one lowercase letter')
+            .matches(/[0-9]/, 'Must include at least one number')
+            .matches(/[!@#$%^&*(),.?":{}|<>]/, 'Must include at least one special character')
+            .matches(/^\S*$/, 'No spaces allowed'),
     })
 
     const onSubmit = () => {
@@ -81,10 +91,14 @@ export default function Log_in() {
                                             </div>
 
                                             <div className="flex justify-between items-center mb-6">
-                                                <a href="#" className="text-sm text-teal-600 hover:underline">Forgot Password</a>
+                                                <a href="#" className="text-sm text-gray-700 hover:underline hover:text-teal-700">Forgot Password</a>
                                             </div>
 
                                             <button type="submit" className="w-full bg-teal-600 text-white py-2 rounded-lg text-lg font-medium hover:bg-teal-700 transition cursor-pointer">Sign in</button>
+
+                                            <div className="flex justify-between items-center my-4">
+                                                <Link href="/Register" className="text-sm text-gray-700 hover:underline hover:text-teal-700">Register yourself</Link>
+                                            </div>
                                             {/* </form> */}
                                         </div>
                                         {/* <div className=''></div> */}
