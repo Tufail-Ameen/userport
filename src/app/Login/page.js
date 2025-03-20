@@ -1,12 +1,12 @@
-import Log_in from '@/Components/Log_in'
-import Navbar from '@/Components/Navbar'
+import FancyLogin from '@/Components/Auth/FancyLogin/FancyLogin'
+import Navbar from '@/Components/Navbar/Navbar'
 import React from 'react'
 
 export default function Login() {
   return (
     <>
       <Navbar></Navbar>
-      <Log_in></Log_in>
+      <FancyLogin></FancyLogin>
     </>
   )
 }
