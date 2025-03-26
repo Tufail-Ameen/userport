@@ -78,7 +78,7 @@ export default function Register() {
                                             <div className='space-y-5'>
                                                 {/* Title */}
                                                 <div className='grid grid-cols-12' >
-                                                    <h2 className="text-2xl font-bold">Register</h2>
+                                                    <h1 className="text-2xl font-bold">Register</h1>
                                                 </div>
 
                                                 {/* Name Fields */}

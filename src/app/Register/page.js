@@ -7,8 +7,6 @@ import css from 'styled-jsx/css'
 export default function page() {
     return (
         <>
-            <Navbar></Navbar>
-            {/* <Register></Register> */}
             <FancyRegister></FancyRegister>
         </>
     )
