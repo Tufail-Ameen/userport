@@ -53,16 +53,16 @@ export default function Log_in() {
 
         {({ values, onsubmit }) => (<Form>
           <div className='grid grid-flow-col grid-cols-12 h-full' >
-            <div className='col-span-6 h-screen'>
-              <div className="bg-[url('/3787203.jpg')] bg-cover bg-center h-full min-h-screen w-full" ></div>
+            <div className='col-span-6'>
+              <div className="bg-[url('/Landing_Page_2.jpg')] bg-cover bg-center h-full min-h-screen w-full" ></div>
             </div>
 
             <div className='col-span-6 flex justify-center items-center'>
               {/* Forget form */}
-              <div className='w-3/5'>
+              <div className='w-4/5 sm:w-4/5 md:w-3/5'>
 
                 <div className='mb-4'>
-                  <h1 className='text-3xl font-bold '>Choose a new password</h1>
+                  <h1 className='text-lg sm:text-lg md:text-3xl font-bold '>Choose a new password</h1>
                 </div>
 
                 <label className="block text-gray-700 bg-gray-100 text-sm font-medium mb-5">You can change your password immediately because you are logged into your email account on this browser.</label>
@@ -81,7 +81,7 @@ export default function Log_in() {
                 </div>
 
                 <div className='mb-4'>
-                  <button type="submit" className="w-full text-white py-2 rounded-lg text-lg font-medium transition cursor-pointer primary-bgcolor" >Change password</button>
+                  <button type="submit" className="w-full text-white py-2 rounded-lg text-sm sm:text-sm md:text-lg font-medium transition cursor-pointer primary-bgcolor" >Change password</button>
                 </div>
 
               </div>

@@ -10,7 +10,7 @@ function classNames(...classes) {
 export default function InnerNavBar() {
     return (
         <>
-            <Disclosure as="nav" className="bg-[#f0f0f0] h-full flex items-center">
+            <Disclosure as="nav" className="bg-[#f0f0f0]">
                 <div className="w-full px-5">
                     <div className="relative flex h-16 items-center justify-between">
                         <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -23,20 +23,13 @@ export default function InnerNavBar() {
                             </DisclosureButton>
                         </div>
 
-                        <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start cursor-pointer">
-                            <div className="sm:hidden md:block lg:block flex shrink-0 items-center">
-                                <img
-                                    alt="Your Company"
-                                    src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-                                    className="h-8 w-auto"
-                                />
-                            </div>
+                        <div className="flex flex-1 items-last justify-start sm:items-stretch sm:justify-start cursor-pointer ">
                             <div className="hidden sm:ml-6 sm:block">
                                 <div className="flex space-x-4">
-                                    <Link href="/" className="bg-teal-700 text-white rounded-md px-3 py-2 text-sm font-medium">Home</Link>
-                                    <Link href="/About" className="text-black-300 hover:bg-teal-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</Link>
-                                    <Link href="/Projects" className="text-black-300 hover:bg-teal-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</Link>
-                                    <Link href="/Calendar" className="text-black-300 hover:bg-teal-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Calendar</Link>
+                                    <Link href="/" className="rounded-md px-3 py-2 text-sm font-medium innerNavBarMenu">Home</Link>
+                                    <Link href="/About" className="text-black-300 rounded-md px-3 py-2 text-sm font-medium innerNavBarMenu">About</Link>
+                                    <Link href="/Projects" className="text-black-300 rounded-md px-3 py-2 text-sm font-medium innerNavBarMenu">Projects</Link>
+                                    <Link href="/Calendar" className="text-black-300 rounded-md px-3 py-2 text-sm font-medium innerNavBarMenu">Calendar</Link>
                                 </div>
                             </div>
                         </div>
@@ -44,7 +37,7 @@ export default function InnerNavBar() {
                         <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                             <button
                                 type="button"
-                                className="relative rounded-full bg-teal-700 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-400 focus:outline-hidden cursor-pointer"
+                                className="relative rounded-full p-1 innerNavBarBellIcon cursor-pointer"
                             >
                                 <span className="absolute -inset-1.5" />
                                 <span className="sr-only">View notifications</span>
@@ -53,7 +46,7 @@ export default function InnerNavBar() {
                             {/* Profile dropdown */}
                             <Menu as="div" className="relative ml-3">
                                 <div>
-                                    <MenuButton className="cursor-pointer relative flex rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-400 focus:outline-hidden">
+                                    <MenuButton className="cursor-pointer relative flex rounded-full">
                                         <span className="absolute -inset-1.5" />
                                         <span className="sr-only">Open user menu</span>
                                         <img
@@ -63,33 +56,16 @@ export default function InnerNavBar() {
                                         />
                                     </MenuButton>
                                 </div>
-                                <MenuItems
-                                    transition
-                                    className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 ring-1 shadow-lg ring-black/5 transition focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
-                                >
-                                    <MenuItem>
-                                        <Link href="/Login" className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden">Login / Sign Up</Link>
-                                    </MenuItem>
-                                    <MenuItem>
-                                        <Link href="#" className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden">Your Profile</Link>
-                                    </MenuItem>
-                                    <MenuItem>
-                                        <Link href="#" className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden">Settings</Link>
-                                    </MenuItem>
-                                    <MenuItem>
-                                        <Link href="#" className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden">Sign out</Link>
-                                    </MenuItem>
-                                </MenuItems>
                             </Menu>
                         </div>
                     </div>
                 </div>
                 <DisclosurePanel className="sm:hidden">
                     <div className="space-y-1 px-2 pt-2 pb-3">
-                        <Link href="/" className="block bg-gray-900 text-white rounded-md px-3 py-2 text-base font-medium">Home</Link>
-                        <Link href="/about" className="block text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium">About</Link>
-                        <Link href="/projects" className="block text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium">Projects</Link>
-                        <Link href="/calendar" className="block text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium">Calendar</Link>
+                        <Link href="/Dashboard" className="block rounded-md px-3 py-2 text-base font-medium innerNavBarMenu">Dashboard</Link>
+                        <Link href="/Dashboard/Profile" className="block rounded-md px-3 py-2 text-base font-medium innerNavBarMenu">Profile</Link>
+                        <Link href="/Dashboard/Reset" className="block rounded-md px-3 py-2 text-base font-medium innerNavBarMenu">Reset Password</Link>
+                        <Link href="/Dashboard/Delete_Account" className="block rounded-md px-3 py-2 text-base font-medium innerNavBarMenu">Delete Account</Link>
                     </div>
                 </DisclosurePanel>
             </Disclosure>

@@ -5,6 +5,11 @@
   --primary-color: #0d9488;
   --primary_hover-color: #0f766e;
   --secondary-color: #374151;
+  --dashboard-bg: #f4f4f4;
+
+  --grey: #111827;
+  --white: #ffffff;
+  --borderGray: 2px solid #111827;
 }
 
 /* green without hover */
@@ -28,4 +33,33 @@
 
 .secondary-textcolor:hover {
   color: var(--primary_hover-color);
+}
+
+/* dashboatrd background */
+.dashboardbg {
+  background-color: var(--dashboard-bg);
+}
+
+.dashBoardButtons {
+  background-color: var(--grey);
+  color: var(--white);
+}
+
+.innerSideBarMenu:hover {
+  background-color: var(--white);
+  color: var(--grey);
+}
+
+.innerNavBarMenu:hover {
+  background-color: var(--white);
+  color: var(--grey);
+}
+
+.innerNavBarBellIcon {
+  background-color: var(--grey);
+  color: var(--white);
+}
+
+.cursor {
+  cursor: pointer;
 }

@@ -68,7 +68,7 @@ export default function Register() {
                         <div className='grid grid-flow-col grid-cols-12 min-h-screen' >
 
                             <div className='col-span-6'>
-                                <div className="bg-[url('/3787203.jpg')] bg-cover bg-center h-full min-h-screen w-full" ></div>
+                                <div className="bg-[url('/Landing_Page_2.jpg')] bg-cover bg-center h-full min-h-screen w-full" ></div>
                             </div>
 
                             <div className='col-span-6 flex justify-center items-center my-5'>

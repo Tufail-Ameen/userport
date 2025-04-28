@@ -1,7 +1,12 @@
+"use client"
+
 import Navbar from '@/Components/Navbar/Navbar';
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 export default function About() {
+    const number = useSelector((state) => state.practice.value)
+
     return (
         <>
             <Navbar />
@@ -11,7 +16,7 @@ export default function About() {
                     Learn more about our journey, mission, and values. We are dedicated to providing the best services to our users.
                 </p>
                 <button className="mt-6 px-6 py-3 bg-white text-primary-color font-semibold text-lg rounded-full shadow-lg primary-bgcolor hover:primary-bgcolor transition">
-                    Contact Us
+                    Contact Us {number}
                 </button>
             </div>
         </>

@@ -21,7 +21,6 @@ export default function Log_in() {
             .matches(/^\S*$/, 'No spaces allowed')
             .matches(/^[^@.][a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 'Invalid email format')
             .matches(/^(?!.*\.\.)/, 'Consecutive dots are not allowed')
-            .matches(/^[a-zA-Z0-9._%+-]+@gmail\.com$/, 'Only Gmail addresses are allowed'),
     })
 
     let routerOTP = useRouter();
@@ -44,15 +43,15 @@ export default function Log_in() {
                 {({ values, onsubmit }) => (<Form>
                     <div className='grid grid-flow-col grid-cols-12 h-full' >
                         <div className='col-span-6 h-screen'>
-                            <div className="bg-[url('/3787203.jpg')] bg-cover bg-center h-full min-h-screen w-full" ></div>
+                            <div className="bg-[url('/Landing_Page_2.jpg')] bg-cover bg-center h-full min-h-screen w-full" ></div>
                         </div>
 
                         <div className='col-span-6 flex justify-center items-center'>
                             {/* Forget form */}
-                            <div className='w-3/5'>
+                            <div className='w-4/5 sm:w-4/5 md:w-3/5'>
 
                                 <div className='mb-4'>
-                                    <h1 className='text-3xl font-bold '>Reset your password</h1>
+                                    <h1 className='text-lg sm:text-lg md:text-3xl font-bold '>Reset your password</h1>
                                 </div>
 
                                 <div className='mb-4'>
@@ -63,7 +62,7 @@ export default function Log_in() {
                                 </div>
 
                                 <div className='mb-4'>
-                                    <button type="submit" className="w-full text-white py-2 rounded-lg text-lg font-medium transition cursor-pointer primary-bgcolor" >Send password reset email</button>
+                                    <button type="submit" className="w-full text-white py-2 px-1 rounded-lg text-sm sm:text-sm md:text-lg font-medium transition cursor-pointer primary-bgcolor" >Send password reset email</button>
                                 </div>
 
                                 <div className='mb-4 flex justify-between' >
