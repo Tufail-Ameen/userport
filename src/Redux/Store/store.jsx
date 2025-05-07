@@ -1,8 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import practiceReducer from "../Slice/practiceSlice";
+import toggleReducer from "../Slice/toggleCartSlice";
+import cartReducer from "../Slice/cartSlice";
 
 export const store = configureStore({
-  reducer: { practice: practiceReducer },
+  reducer: {
+    toggle: toggleReducer,
+    cart: cartReducer,
+  },
 });
 
 export default store;

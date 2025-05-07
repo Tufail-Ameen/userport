@@ -1,24 +1,37 @@
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fbf8f8;
+  border-radius: 6px;
+}
+
+.menu-item.active {
+  background-color: #c6d5e7;
+}
+
 .carousel-container {
   padding: 20px 0;
 }
 
 .carousel-image {
-  width: 75%;
-  height: 75%;
+  width: 60%;
+  height: auto;
   object-fit: cover;
-  border-radius: 8px;
-  border: 2px solid transparent;
-  transition: border-color 0.3s ease;
+  /* border-radius: 8px; */
+  /* border: 2px solid transparent; */
+  /* transition: border-color 0.3s ease; */
 }
 
-.carousel-image.active {
+/* .carousel-image.active {
   border: 2px solid #d3d3d3;
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+} */
 
 .carousel-item-padding-40-px {
-  padding: 0 10px;
+  padding: 0 15px;
 }
 
 /* .custom-dot-list-style {

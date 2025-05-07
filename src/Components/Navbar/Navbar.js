@@ -1,13 +1,16 @@
+"use client"
+
 import React from 'react'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { FaCartArrowDown } from "react-icons/fa";
 import Link from 'next/link'
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+import { useDispatch } from 'react-redux';
+import { toggleCart } from '@/Redux/Slice/toggleCartSlice';
 
 export default function Navbar() {
+  const dispatch = useDispatch();
+
   return (
     <>
       <Disclosure as="nav" className="bg-[#ffffff]">
@@ -24,12 +27,15 @@ export default function Navbar() {
             </div>
             {/* Starting of the Navbar */}
             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start cursor-pointer">
-
-
             </div>
 
             {/* Ending of the Navbar */}
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <div className="relative cursor-pointer mr-4">
+                <FaCartArrowDown className="size-6 text-gray-600 hover:text-gray-900 transition-colors duration-200" onClick={() => dispatch(toggleCart())} />
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full size-4 flex items-center justify-center">0</span>
+              </div>
+
               {/* Profile dropdown */}
               <Menu as="div" className="relative ml-3">
                 <div>

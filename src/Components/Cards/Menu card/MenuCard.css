@@ -1,0 +1,23 @@
+.card-container {
+  border: 2px solid #fbf8f8;
+}
+
+.card-container:hover {
+  background-color: #ffebeb;
+}
+
+.cart-container {
+  border: 2px solid #fbf8f8;
+}
+
+.cart-container:hover {
+  border: 2px solid #fbf8f8;
+}
+
+.quantity-btn {
+    padding: 2px 8px !important;
+    min-height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

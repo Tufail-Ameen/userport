@@ -3,16 +3,12 @@
 import Navbar from '@/Components/Navbar/Navbar';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { practiceFunction } from '@/Redux/Slice/practiceSlice';
 import { IoLocationSharp } from "react-icons/io5";
-import { WiTime3 } from "react-icons/wi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { useRef } from "react";
 import { useRouter } from 'next/navigation';
 
-
 export default function Home() {
-    // const [showNavbar, setShowNavbar] = useState(false);
     const [showNavbar, setShowNavbar] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
     const dispatch = useDispatch();
@@ -64,12 +60,12 @@ export default function Home() {
             )}
 
             {/* Landing Page */}
-            <div className='h-screen w-full bg-[url("/Landing_Page_4.jpg")] bg-cover bg-center flex items-center pl-10 mb-20'>
+            <div className='mb-20 h-screen w-full bg-[url("/Landing_Page_4.jpg")] bg-cover bg-center flex items-center px-5 sm:pl-5 sm:pr-5 md:pl-2 md:pr-2 lg:pl-10 lg:pr-10'>
                 <div>
-                    <h1 className="text-white text-6xl font-bold">Order delivery near you</h1>
+                    <h1 className="text-3xl text-white font-bold sm:text-3xl md:text-6xl">Order delivery near you</h1>
                     <div className="grid grid-cols-12 mt-5 gap-2">
                         {/* Input Field */}
-                        <div className="col-span-5 bg-white flex items-center px-3">
+                        <div className="col-span-12 bg-white flex items-center px-3 sm:col-span-12 md:col-span-4">
                             <IoLocationSharp className="text-2xl" />
                             <input
                                 type="text"
@@ -79,7 +75,7 @@ export default function Home() {
                         </div>
 
                         {/* Select Field */}
-                        <div className="col-span-2 relative">
+                        <div className="col-span-12 relative sm:col-span-12 md:col-span-4 ">
                             <select className="w-full p-3 pr-10 bg-white cursor-pointer appearance-none border rounded border-none">
                                 <option className="cursor-pointer" value="1">🕒 Deliver now</option>
                                 <option value="2">⏰ Schedule for later</option>
@@ -88,7 +84,7 @@ export default function Home() {
                         </div>
 
                         {/* Search Button */}
-                        <div className='col-span-1'>
+                        <div className='col-span-12 sm:col-span-12 md:col-span-4'>
                             <button className='w-full px-1 py-3 rounded-lg bg-black text-white cursor font-semibold' onClick={openMenu} >Search here</button>
                         </div>
                     </div>
@@ -96,8 +92,6 @@ export default function Home() {
 
 
             </div>
-
-
 
         </>
     );

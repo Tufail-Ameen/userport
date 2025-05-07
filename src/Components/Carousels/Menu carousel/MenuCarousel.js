@@ -19,13 +19,13 @@ export default function MenuCarousel() {
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
-            items: 2,
-            slidesToSlide: 2 // optional, default to 1.
+            items: 6,
+            slidesToSlide: 6 // optional, default to 1.
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
-            items: 1,
-            slidesToSlide: 1 // optional, default to 1.
+            items: 3,
+            slidesToSlide: 3 // optional, default to 1.
         }
     };
 
@@ -73,16 +73,16 @@ export default function MenuCarousel() {
                 customTransition="all .5"
                 transitionDuration={500}
                 containerClass="carousel-container"
-                removeArrowOnDeviceType={["tablet", "mobile"]}
+                // removeArrowOnDeviceType={["tablet", "mobile"]}
                 //   deviceType={this.props.deviceType}
                 dotListClass="custom-dot-list-style"
                 itemClass="carousel-item-padding-40-px"
             >
                 {menuItems.map((item, index) => (
                     <Link key={index} to={`card${index + 1}`} smooth={true} duration={500} onClick={() => handleItemClick(index)}>
-                        <div className="menu-item">
+                        <div className={`menu-item py-1 cursor ${activeItem === index ? 'active' : ''}`}>
                             <img
-                                className={`carousel-image cursor ${activeItem === index ? 'active' : ''}`}
+                                className="carousel-image"
                                 src={item.src}
                                 alt={item.alt}
                             />
