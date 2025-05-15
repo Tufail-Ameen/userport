@@ -8,8 +8,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addToCart, removeFromCart, updateQuantity } from '@/Redux/Slice/cartSlice';
 import { toggleCart } from '@/Redux/Slice/toggleCartSlice';
 import { MdDelete } from "react-icons/md";
-import { AiFillDelete } from "react-icons/ai";
-import { FaPlus } from "react-icons/fa6";
 
 // Mock data that will be replaced with backend data
 const menuItems = [
@@ -208,7 +206,7 @@ const menuItems = [
 ];
 
 // cart component
-function Cart() {
+export function Cart() {
     const dispatch = useDispatch();
     const isCartOpen = useSelector((state) => state.toggle.value);
     const { items, totalItems, totalAmount } = useSelector((state) => state.cart);
@@ -228,9 +226,9 @@ function Cart() {
     return (
         <>
             {isCartOpen && (
-                <div className="fixed top-17 right-4 z-50">
-                    <div className="bg-white rounded-lg p-4 w-90 shadow-lg cart-container">
-                        <div className="flex items-center justify-between mb-7">
+                <div className="fixed top-15 right-4 z-50">
+                    <div className="bg-white rounded-lg p-4 w-90 shadow-lg cart-container max-h-[90vh] flex flex-col">
+                        <div className="flex items-center justify-between mb-4">
                             <h1 className="text-xl font-bold">Your Cart ({totalItems} )</h1>
                             <button
                                 onClick={handleCloseCart}
@@ -240,68 +238,82 @@ function Cart() {
                             </button>
                         </div>
 
+                        <div className="flex-1 overflow-y-auto">
+                            <ul className="space-y-2">
+                                {items.map((item) => (
+                                    <li key={item.id} className="border-b pb-2">
+                                        {/* Grid System */}
+                                        <div className='grid  grid-cols-12' >
 
+                                            {/* Image Part */}
+                                            <div className='col-span-3 flex justify-center items-center'>
+                                                <img
+                                                    src={item.image}
+                                                    alt={item.name}
+                                                    className="w-16 h-16 object-cover rounded-lg"
+                                                />
+                                            </div>
 
-                        <ul className="max-h-96 overflow-y-auto">
-                            {items.map((item) => (
-                                <li key={item.id} className="mb-2 border-b pb-2">
-
-                                    {/* Grid System */}
-                                    <div className='grid  grid-cols-12' >
-
-                                        {/* Image Part */}
-                                        <div className='col-span-3 flex justify-center items-center'>
-                                            <img
-                                                src={item.image}
-                                                alt={item.name}
-                                                className="w-16 h-16 object-cover rounded-lg"
-                                            />
-                                        </div>
-
-                                        {/* Text Part */}
-                                        <div className='col-span-8 ms-1'>
-                                            <div>
-                                                <span className="font-medium">{item.name}</span>
-                                                <div className="text-sm text-gray-600">
-                                                    ${item.price} × {item.quantity}
-                                                </div>
-
-                                                <div className="flex gap-1">
-                                                    <button
-                                                        onClick={() => handleUpdateQuantity(item.id, item.quantity - 1)}
-                                                        className=" bg-gray-200 rounded hover:bg-gray-300 quantity-btn cursor"
-                                                    >
-                                                        -
-                                                    </button>
-
-                                                    <div className='text-gray-700 font-semibold text-md' >
-                                                        {item.quantity}
+                                            {/* Text Part */}
+                                            <div className='col-span-8 ms-1'>
+                                                <div>
+                                                    <span className="font-medium">{item.name}</span>
+                                                    <div className="text-sm text-gray-600">
+                                                        ${item.price} × {item.quantity}
                                                     </div>
 
-                                                    <button
-                                                        onClick={() => handleUpdateQuantity(item.id, item.quantity + 1)}
-                                                        className="bg-gray-200 rounded hover:bg-gray-300 quantity-btn cursor"
-                                                    >
-                                                        +
-                                                    </button>
+                                                    <div className="flex gap-1">
+                                                        <button
+                                                            onClick={() => handleUpdateQuantity(item.id, item.quantity - 1)}
+                                                            className=" bg-gray-200 rounded hover:bg-gray-300 quantity-btn cursor"
+                                                        >
+                                                            -
+                                                        </button>
 
+                                                        <div className='text-gray-700 font-semibold text-md' >
+                                                            {item.quantity}
+                                                        </div>
+
+                                                        <button
+                                                            onClick={() => handleUpdateQuantity(item.id, item.quantity + 1)}
+                                                            className="bg-gray-200 rounded hover:bg-gray-300 quantity-btn cursor"
+                                                        >
+                                                            +
+                                                        </button>
+
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        {/* Delete Part */}
-                                        <div className='col-span-1 flex justify-end items-satrt'>
-                                            <MdDelete className='text-xl text-gray-700 cursor' onClick={() => handleRemoveItem(item.id)} />
+                                            {/* Delete Part */}
+                                            <div className='col-span-1 flex justify-end items-satrt'>
+                                                <MdDelete className='text-xl text-gray-700 cursor' onClick={() => handleRemoveItem(item.id)} />
+                                            </div>
                                         </div>
-                                    </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
 
-                                </li>
-                            ))}
-                        </ul>
-                        <div className="mt-4 pt-4">
-                            <div className="flex justify-between font-bold">
-                                <span>Total:</span>
+                        <div className="mt-2 pt-4">
+                            <div className="flex justify-between font-bold mb-2">
+                                <span>Cart Total:</span>
                                 <span>${totalAmount.toFixed(2)}</span>
+                            </div>
+
+                            <div className="flex justify-between font-bold mb-2">
+                                <span>Tax (10%):</span>
+                                <span>${(totalAmount * 0.1).toFixed(2)}</span>
+                            </div>
+
+                            <div className="flex justify-between font-bold mb-2">
+                                <span>Delivery Fee:</span>
+                                <span>${(totalAmount > 0 ? 2.99 : 0).toFixed(2)}</span>
+                            </div>
+
+                            <div className="flex justify-between font-bold mb-2">
+                                <span>Subtotal:</span>
+                                <span>${(totalAmount + (totalAmount * 0.1) + (totalAmount > 0 ? 2.99 : 0)).toFixed(2)}</span>
                             </div>
                         </div>
                     </div>

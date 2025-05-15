@@ -5,10 +5,12 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { FaCartArrowDown } from "react-icons/fa";
 import Link from 'next/link'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toggleCart } from '@/Redux/Slice/toggleCartSlice';
 
+
 export default function Navbar() {
+  const { totalItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   return (
@@ -31,9 +33,9 @@ export default function Navbar() {
 
             {/* Ending of the Navbar */}
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <div className="relative cursor-pointer mr-4">
-                <FaCartArrowDown className="size-6 text-gray-600 hover:text-gray-900 transition-colors duration-200" onClick={() => dispatch(toggleCart())} />
-                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full size-4 flex items-center justify-center">0</span>
+              <div className="relative cursor-pointer mr-4" onClick={() => dispatch(toggleCart())}>
+                <FaCartArrowDown className="size-6 text-gray-600 hover:text-gray-900 transition-colors duration-200" />
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full size-4 flex items-center justify-center">{totalItems}</span>
               </div>
 
               {/* Profile dropdown */}

@@ -10,6 +10,7 @@ import { CartProvider } from 'react-use-cart'
 export default function page() {
   return (
     <CartProvider>
+
       <div className='z-8'>
         <Navbar />
       </div>
@@ -19,6 +20,7 @@ export default function page() {
       </div>
 
       <MenuCard />
+
     </CartProvider>
   )
 }
