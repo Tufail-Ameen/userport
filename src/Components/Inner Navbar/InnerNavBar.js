@@ -7,7 +7,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function InnerNavBar() {
+export default function InnerNavBar() { 
     return (
         <>
             <Disclosure as="nav" className="bg-[#f0f0f0]">
