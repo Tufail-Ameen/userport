@@ -15,7 +15,7 @@ export default function Footer() {
                         12345678
                     </div>
                     <div className='col-span-3' >
-                        12345678
+                        11111111
                     </div>
                 </div>
             </div>
