@@ -4,7 +4,6 @@ import React from 'react'
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Link from 'next/link';
-import App from '../../../../my-react-router-app/app/root';
 import { useRouter } from "next/navigation";
 
 
